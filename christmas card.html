@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Card Surprise</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .snowflake {
+            position: absolute;
+            color: #FFF;
+            font-size: 20px;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -10px; opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+        .teaser {
+            z-index: 2;
+            max-width: 400px;
+            display: block;
+        }
+        .card {
+            background: #FFF;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .card.show {
+            display: block;
+            opacity: 1;
+        }
+        .title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #FF4500;
+            color: #FFF;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #FF6347;
+        }
+        .tree {
+            font-size: 50px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .tree.lit {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .signature {
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowflakes for background -->
+    <div class="snowflake" style="left: 10%; animation-delay: 0s;">❄</div>
+    <div class="snowflake" style="left: 20%; animation-delay: 1s;">❄</div>
+    <div class="snowflake" style="left: 30%; animation-delay: 2s;">❄</div>
+    <div class="snowflake" style="left: 40%; animation-delay: 3s;">❄</div>
+    <div class="snowflake" style="left: 50%; animation-delay: 4s;">❄</div>
+    <div class="snowflake" style="left: 60%; animation-delay: 5s;">❄</div>
+    <div class="snowflake" style="left: 70%; animation-delay: 6s;">❄</div>
+    <div class="snowflake" style="left: 80%; animation-delay: 7s;">❄</div>
+    <div class="snowflake" style="left: 90%; animation-delay: 8s;">❄</div>
+
+    <!-- Teaser Section -->
+    <div class="teaser" id="teaser">
+        <h1 class="title">🎄 A Special Christmas Surprise Awaits! 🎄</h1>
+        <p>Click below to unwrap your festive card...</p>
+        <button class="button" id="openButton">Click to Open Your Card</button>
+    </div>
+
+    <!-- Card Section -->
+    <div class="card" id="card">
+        <h1>🎄 Merry Christmas! 🎄</h1>
+        <div class="tree" id="tree">🌲</div>
+        <p class="message">Wishing you joy, peace, and a season filled with warmth and wonder. May your holidays sparkle like fresh snow!</p>
+        <p class="signature">From Grok, with festive cheer</p>
+    </div>
+
+    <script>
+        const openButton = document.getElementById('openButton');
+        const teaser = document.getElementById('teaser');
+        const card = document.getElementById('card');
+        const tree = document.getElementById('tree');
+
+        openButton.addEventListener('click', () => {
+            teaser.style.display = 'none';
+            card.classList.add('show');
+        });
+
+        tree.addEventListener('click', () => {
+            tree.classList.toggle('lit');
+        });
+    </script>
+</body>
+</html>
